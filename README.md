@@ -1,20 +1,96 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 物理大师 AI 实验室 (Physics Master AI Lab) 🚀
 
-# Run and deploy your AI Studio app
+**“物理不仅仅是公式的堆砌，更是观察世界的眼睛。”**
 
-This contains everything you need to run your app locally.
+物理大师是一款深度融合了 **Google Gemini 3 (Thinking Model)** 强大推理能力与 **20年一线物理教研实战经验** 的智能辅助学习平台。它打破了传统教育中“直接给答案”的快餐式模式，专注于解决初中生在物理学习中的核心痛点：公式记不住、受力分析乱、实验现象看不透。
 
-View your app in AI Studio: https://ai.studio/apps/drive/1Dew-gqxruxRiTik4ItpJdE90uNTNDTub
+### 核心教学特色：
+*   **💡 苏格拉底式启发教学**：AI 导师像特级教师一样，通过精准的“逆向提问”和“分步拆解”，引导你自行发现规律，实现从“知其然”到“知其所以然”的本质跨越。
+*   **📸 多模态拍照批改**：不仅能识别文字，更能深度解析电路图、受力分析图及光学路经图。只需一张照片，AI 即可精准捕捉你的思维误区，指出“哪里错了”比提供“正确答案”更有价值。
+*   **🧠 逆向思维建模**：模拟中考命题人视角，通过错题自动归档与“避坑点拨”，帮助学生建立系统化的物理建模能力。
+*   **✨ 极致学术美感**：采用标准 $\LaTeX$ 渲染物理公式，确保每一道题目、每一张试卷都拥有出版级的专业质感，让学习物理成为一种视觉享受。
 
-## Run Locally
+---
 
-**Prerequisites:**  Node.js
+## 🌟 快速部署与公网访问指南
 
+如果你想将此应用部署到互联网，让身处各地的同学都能使用，请按照以下步骤操作：
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### 第一步：代码托管 (GitHub)
+1. 在 [GitHub](https://github.com/) 上创建一个新的公开（Public）或私有（Private）仓库。
+2. 将本项目的所有文件（包括 `index.html`, `index.tsx`, `package.json` 等）上传到该仓库中。
+
+### 第二步：一键部署 (Vercel)
+我们强烈推荐使用 **Vercel**，它能自动将你的 GitHub 代码转化为在线网站，且对个人开发者免费。
+
+1. 访问 [Vercel 官网](https://vercel.com/) 并使用 GitHub 账号登录。
+2. 点击 **"Add New"** -> **"Project"**。
+3. 导入你刚才创建的 GitHub 仓库。
+4. **关键配置：添加 API Key**
+   - 在部署页面的 "Environment Variables" 部分，添加一个新的环境变量：
+     - **Key**: `API_KEY`
+     - **Value**: `你的_GOOGLE_GEMINI_API_KEY`
+5. 点击 **"Deploy"**。
+6. 等待约 1 分钟，Vercel 会为你生成一个以 `.vercel.app` 结尾的公网链接，你可以直接发给任何人使用！
+
+---
+
+## 💻 本地开发环境配置
+
+如果你想在本地电脑上运行或修改代码，请按照以下步骤操作：
+
+### 1. 克隆项目
+打开终端（Terminal 或 PowerShell），执行：
+```bash
+git clone https://github.com/你的用户名/你的仓库名.git
+cd 你的仓库名
+```
+
+### 2. 安装依赖包
+项目需要 Node.js 环境。在项目根目录下运行：
+```bash
+npm install
+```
+*这将安装 React, Vite, Gemini SDK 和 Lucide 图标库等必要组件。*
+
+### 3. 配置本地 API Key
+1. 在根目录创建一个名为 `.env` 的文件（可以参考 `.env.example`）。
+2. 在文件中写入：
+   ```env
+   VITE_API_KEY=你的_GEMINI_API_KEY
+   ```
+
+### 4. 启动开发服务器
+运行以下命令启动项目：
+```bash
+npm run dev
+```
+启动后，终端会显示一个地址（通常是 `http://localhost:5173`），在浏览器打开即可。
+
+---
+
+## 🛠️ 技术架构
+
+- **前端框架**: React 18 + TypeScript (类型安全，易于维护)
+- **构建工具**: Vite (极速热更新，开发体验极佳)
+- **AI 引擎**: Google Gemini 3 (通过 `@google/genai` 调用)
+- **数学渲染**: KaTeX (渲染物理公式，支持 $\LaTeX$)
+- **样式**: 磨砂玻璃质感 (Glassmorphism) + 响应式布局
+
+---
+
+## 📦 如何获取 API Key？
+1. 访问 [Google AI Studio](https://aistudio.google.com/)。
+2. 点击 "Get API key"。
+3. 创建一个新的 API key 并保存。
+
+---
+
+## 🧑‍🏫 开发者须知
+- **公式输入**: 在对话框中，你可以让 AI 使用 $...$ 输入行内公式，或使用 $$...$$ 输入独立块公式。
+- **离线支持**: 部署后，应用利用现代浏览器特性提供流畅体验。
+- **隐私保护**: 所有的对话内容直接与 Google Gemini API 交互，本地不存储个人敏感信息。
+
+---
+
+**注意**：本应用生成的 AI 内容仅供教学辅助参考，建议结合教材及老师指导进行学习。
